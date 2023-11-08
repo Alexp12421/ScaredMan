@@ -10,6 +10,10 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
 
+    //healthbar
+
+    public HealthIndicator healthIndicator;
+
 
     //player attack variables
     public int attackPower;
@@ -28,6 +32,10 @@ public class PlayerCombat : MonoBehaviour
     private void Start()
     {
         currentHp = maxHp;
+        if (healthIndicator)
+        {
+            healthIndicator.setHpbar(currentHp, maxHp);
+        }
     }
     void Update()
     {
@@ -50,6 +58,11 @@ public class PlayerCombat : MonoBehaviour
         {
         // hurt animation
         animator.SetTrigger("Hurt");
+
+            if (healthIndicator)
+            {
+                healthIndicator.setHpbar(currentHp, maxHp);
+            }
 
         }
         
@@ -153,5 +166,6 @@ public class PlayerCombat : MonoBehaviour
     {
         return currentHp;
     }
+
 
 }

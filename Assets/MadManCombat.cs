@@ -89,7 +89,7 @@ public class MadManCombat : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            
+           
             enemy.GetComponent<EnemyBehaviour>().TakeDamage(attackPower * attackPowerMultiplier); // infusing dmg to monsters
             DmgMultiplier();
 
